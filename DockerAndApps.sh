@@ -69,7 +69,7 @@ docker build -t typemill:local .
 # Define the base directory
 base_dir="/var/www/html"
 
-# List of paths to create
+# List of paths to create and make writable
 declare -a paths=(
     "settings/users/"
     "media/tmp/"
@@ -80,10 +80,14 @@ declare -a paths=(
     "media/files/"
 )
 
-# Loop through the array and create each directory
+# Loop through the array, create each directory, and make it writable
 for path in "${paths[@]}"; do
-    mkdir -p "${base_dir}/${path}"
+    full_path="${base_dir}/${path}"
+    mkdir -p "$full_path"
+    chmod 775 "$full_path"
 done
+
+echo "Directories created and made writable successfully."
 
 echo "Directories created successfully."
 
