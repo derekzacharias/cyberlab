@@ -1,4 +1,4 @@
-ec#!/bin/bash
+#!/bin/bash
 
 # Docker, Docker compose and Portainer installation script.
 
