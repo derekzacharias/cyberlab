@@ -55,7 +55,7 @@ echo "Portanior install complete"
 
 echo "To access Portanior web console go to the following location:" 
 
-Link to Address
+#Link to Address
 
 echo "https://$(hostname -I | awk '{print $1}'):9443"
 
