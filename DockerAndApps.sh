@@ -66,6 +66,27 @@ git clone https://github.com/typemill/typemill.git
 cd typemill
 docker build -t typemill:local .
 
+# Define the base directory
+base_dir="/var/www/html"
+
+# List of paths to create
+declare -a paths=(
+    "settings/users/"
+    "media/tmp/"
+    "media/original/"
+    "media/live/"
+    "media/thumbs/"
+    "media/custom/"
+    "media/files/"
+)
+
+# Loop through the array and create each directory
+for path in "${paths[@]}"; do
+    mkdir -p "${base_dir}/${path}"
+done
+
+echo "Directories created successfully."
+
 cat > docker-compose.yml <<EOF
 version: '3.3'
 services:
