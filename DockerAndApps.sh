@@ -42,7 +42,7 @@ echo "Docker and Docker Compose installation completed!"
 Install Portanior
 echo "Installing Portanior............................................................................."
 
-wait 5 sec
+#wait 5 sec
 sleep 5
 
 Create a docker volume for persistent storage
