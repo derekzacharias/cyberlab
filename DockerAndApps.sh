@@ -62,4 +62,19 @@ echo "https://$(hostname -I | awk '{print $1}'):9443"
 docker pull bkimminich/juice-shop
 docker run -d -p 3000:3000 --restart always bkimminich/juice-shop
 
+git clone https://github.com/typemill/typemill.git
+cd typemill
+docker build -t typemill:local .
 
+docker run -d \
+    --name=typemill \
+    -p 8080:80 \
+    --restart always
+    -v $(pwd)/typemill_data/settings/:/var/www/html/settings/ \
+    -v $(pwd)/typemill_data/media/:/var/www/html/media/ \
+    -v $(pwd)/typemill_data/data/:/var/www/html/data/ \
+    -v $(pwd)/typemill_data/cache/:/var/www/html/cache/ \
+    -v $(pwd)/typemill_data/plugins/:/var/www/html/plugins/ \
+    -v $(pwd)/typemill_data/content/:/var/www/html/content/ \
+    -v $(pwd)/typemill_data/themes/:/var/www/html/themes/ \
+    typemill:local
