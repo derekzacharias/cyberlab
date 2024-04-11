@@ -1,4 +1,4 @@
-#!/bin/bash
+ec#!/bin/bash
 
 # Docker, Docker compose and Portainer installation script.
 
@@ -85,4 +85,6 @@ services:
     restart: always
 EOF
 
-echo "docker-compose.yml file created."
+echo "docker-compose.yml file created. Executing docker-compose.yml file."
+
+docker compose up -d
