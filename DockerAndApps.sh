@@ -2,6 +2,10 @@
 
 # Docker, Docker compose and Portainer installation script.
 
+#Install Docker and Docker Compose
+
+echo "Installing Docker and Docker Compose............................................................................."
+
 # Update the apt package index
 sudo apt update
 
@@ -38,6 +42,21 @@ docker --version
 docker-compose --version
 
 echo "Docker and Docker Compose installation completed!"
+
+#asci art for installation progress
+
+
+[--------------------] 0%
+[##------------------] 10%
+[####----------------] 20%
+[######--------------] 30%
+[########------------] 40%
+[##########----------] 50%
+[############--------] 60%
+[##############------] 70%
+[################----] 80%
+[##################--] 90%
+[####################] 100%
 
 #Install Portanior
 echo "Installing Portanior............................................................................."
