@@ -54,8 +54,8 @@ echo "Docker and Docker Compose installation completed!"
 
 #asci art for installation progress
 
-#Install Portanior
-echo "Installing Portanior............................................................................."
+#Install Portainer
+echo "Installing Portainer............................................................................."
 echo "[###############################-----------------------------------------------------------] 60%"
 echo "[##########################################---------------------------------------------------------] 70%"
 echo "[############################################################-------------------------------------------------------] 80%"
@@ -70,9 +70,9 @@ sudo docker volume create portainer_data
 #download and install the Portainer Server container:
 sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
-echo "Portanior install complete"
+echo "Portainer install complete"
 
-echo "To access Portanior web console go to the following location:" 
+echo "To access Portainer web console go to the following location:" 
 
 #Link to Address
 
