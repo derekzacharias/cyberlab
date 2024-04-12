@@ -4,7 +4,10 @@
 
 #Install Docker and Docker Compose
 
-echo "Installing Docker and Docker Compose............................................................................."
+echo "Updateing Linux............................................................................."
+[-----------------------------------------------------------------------] 0%
+[##---------------------------------------------------------------------] 10%
+[####-------------------------------------------------------------------] 20%
 
 # Update the apt package index
 sudo apt update
@@ -32,6 +35,12 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 
 # Install Docker Compose
+echo "Installing Docker Compose............................................................................."
+[######-----------------------------------------------------------------] 30%
+[########---------------------------------------------------------------] 40%
+[##########-------------------------------------------------------------] 50%
+
+
 # Check https://github.com/docker/compose/releases for the latest version
 DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
 sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -45,21 +54,12 @@ echo "Docker and Docker Compose installation completed!"
 
 #asci art for installation progress
 
-
-[--------------------] 0%
-[##------------------] 10%
-[####----------------] 20%
-[######--------------] 30%
-[########------------] 40%
-[##########----------] 50%
-[############--------] 60%
-[##############------] 70%
-[################----] 80%
-[##################--] 90%
-[####################] 100%
-
 #Install Portanior
 echo "Installing Portanior............................................................................."
+[############-----------------------------------------------------------] 60%
+[##############---------------------------------------------------------] 70%
+[################-------------------------------------------------------] 80%
+[##################-----------------------------------------------------] 90%
 
 #wait 5 sec
 sleep 5
@@ -132,3 +132,11 @@ EOF
 echo "docker-compose.yml file created. Executing docker-compose.yml file."
 
 docker compose up -d
+
+
+
+[####################---------------------------------------------------] 100%
+
+#Install Complete
+echo "Install Complete............................................................................."
+
