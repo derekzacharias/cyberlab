@@ -1,94 +1,60 @@
 #!/bin/bash
 
-# Docker, Docker compose and Portainer installation script.
+# Docker, Docker Compose, and Portainer installation script.
 
-#Install Docker and Docker Compose
+echo "Starting installation process..."
 
-echo "Updateing Linux......................................................................................."
-echo "[-----------------------------------------------------------------------] 0%"
-echo "[######---------------------------------------------------------------------] 10%"
-echo "[#########-------------------------------------------------------------------] 20%"
-
-# Update the apt package index
-sudo apt update
-
-# Install prerequisites
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-
-# Add Docker’s official GPG key
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-# Add Docker apt repository
-sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
-
-# Update the apt package index again
-sudo apt update
+# Update the apt package index and install prerequisites
+echo "Updating system packages..."
+sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common jq
 
 # Install Docker CE
-sudo apt install -y docker-ce
+echo "Installing Docker..."
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update && sudo apt install -y docker-ce
 
-# Start and enable Docker
+# Start and enable Docker service
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# Allow current user to run Docker commands
+# Allow current user to run Docker commands without sudo
 sudo usermod -aG docker $USER
 
 # Install Docker Compose
-echo "Installing Docker Compose............................................................................."
-echo "[#############-----------------------------------------------------------------] 30%"
-echo "[####################---------------------------------------------------------------] 40%"
-echo "[############################-------------------------------------------------------------] 50%"
-
-
-# Check https://github.com/docker/compose/releases for the latest version
-DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)
+echo "Installing Docker Compose..."
+DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r '.tag_name')
+if [ -z "$DOCKER_COMPOSE_VERSION" ]; then
+    echo "Failed to fetch Docker Compose version. Exiting installation."
+    exit 1
+fi
 sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-# Print Docker and Docker Compose versions
+# Verify installation
 docker --version
 docker-compose --version
 
-echo "Docker and Docker Compose installation completed!"
+echo "Docker and Docker Compose installation completed."
 
-#asci art for installation progress
-
-#Install Portainer
-echo "Installing Portainer............................................................................."
-echo "[###############################-----------------------------------------------------------] 60%"
-echo "[##########################################---------------------------------------------------------] 70%"
-echo "[############################################################-------------------------------------------------------] 80%"
-echo "[##########################################################################-----------------------------------------------------] 90%"
-
-#wait 5 sec
-sleep 5
-
-#Create a docker volume for persistent storage
+# Install Portainer
+echo "Installing Portainer..."
 sudo docker volume create portainer_data
-
-#download and install the Portainer Server container:
 sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
 
-echo "Portainer install complete"
-
+echo "Portainer installation complete."
 echo "To access Portainer web console go to the following location:" 
-
-#Link to Address
-
 echo "https://$(hostname -I | awk '{print $1}'):9443"
 
+# Optional applications (example using Juice-shop and Typemill)
+echo "Setting up additional applications..."
 docker pull bkimminich/juice-shop
 docker run -d -p 3000:3000 --restart always bkimminich/juice-shop
 
-git clone https://github.com/typemill/typemill.git
-cd typemill
-docker build -t typemill:local .
-
-# Define the base directory
+# Define the base directory for Typemill
 base_dir="/var/www/html"
 
-# List of paths to create and make writable
+# List of paths to create and make writable for Typemill
 declare -a paths=(
     "settings/users/"
     "media/tmp/"
@@ -106,10 +72,9 @@ for path in "${paths[@]}"; do
     chmod 775 "$full_path"
 done
 
-echo "Directories created and made writable successfully."
+echo "Directories for Typemill created and made writable."
 
-echo "Directories created successfully."
-
+# Typemill Docker configuration
 cat > docker-compose.yml <<EOF
 version: '3.3'
 services:
@@ -129,14 +94,12 @@ services:
     restart: always
 EOF
 
-echo "docker-compose.yml file created. Executing docker-compose.yml file."
+echo "Docker-compose configuration for Typemill created."
 
+# Run Typemill
 docker compose up -d
 
+echo "Typemill application started."
 
-
-echo "[###########################################################################---------------------------------------------------] 100%"
-
-#Install Complete
-echo "Install Complete............................................................................."
-
+# Final completion message
+echo "Installation complete. All services are up and running."
