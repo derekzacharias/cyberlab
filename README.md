@@ -1,6 +1,6 @@
 ###Run these commands and boom! 
 ```
-The script will install docker, docker-compose, PicoCMS,```
+The DockerAndApps.sh script will install docker, docker-compose, PicoCMS,```
 
 ```
 txt
