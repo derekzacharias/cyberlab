@@ -1,7 +1,6 @@
 ###Run these commands and boom! 
 ```
-txt
-```
+The script will install docker, docker-compose, PicoCMS,```
 
 ```
 txt
