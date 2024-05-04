@@ -51,18 +51,18 @@ echo "Setting up additional applications..."
 docker pull bkimminich/juice-shop
 docker run -d -p 3000:3000 --restart always bkimminich/juice-shop
 
-echo "Installing picoCMS"
+echo "Installing WonderCMS"
 
-sudo git clone https://github.com/guillaumeprevost/docker-picocms.git
-cd docker-picocms
-sudo docker-compose build
+# Creating persistance for wondercms
+sudo docker volume create wondercms_web
 
-echo "Docker-compose configuration for PicoCMS created."
+# Starting wondercms container
+sudo docker run -d -p 80:80 --name wondercms -v wondercms_web:/var/www/html mablanco/wondercms
 
-# Run PicoCMS
-docker compose up -d
+echo "Docker configuration for WonderCMS created."
 
-echo "PicoCMS application started."
+
+echo "WonderCMS application started."
 
 # completion message
 echo "Installation complete. All services are up and running."
