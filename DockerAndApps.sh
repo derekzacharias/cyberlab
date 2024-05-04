@@ -51,18 +51,26 @@ echo "Setting up additional applications..."
 docker pull bkimminich/juice-shop
 docker run -d -p 3000:3000 --restart always bkimminich/juice-shop
 
-echo "Installing WonderCMS"
+# Installing mkdocs
+echo "Installing mkdocs"
 
-# Creating persistance for wondercms
-sudo docker volume create wondercms_web
+# Pulling continer from dockerhub
+docker pull squidfunk/mkdocs-material
 
-# Starting wondercms container
-sudo docker run -d -p 80:80 --name wondercms -v wondercms_web:/var/www/html mablanco/wondercms
+#Creating persistence
+mkdir my-mkdocs-project
+cd my-mkdocs-project
 
-echo "Docker configuration for WonderCMS created."
+# Initialize a new project
+docker run --rm -v ${PWD}:/docs squidfunk/mkdocs-material new .
+
+# Starting mkdocs container
+docker run -it --rm -p 8080:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+
+echo "Docker configuration for mkdocs created."
 
 
-echo "WonderCMS application started."
+echo "mkdocs application started."
 
 # Completion message
 echo "Installation complete. All services are up and running."
