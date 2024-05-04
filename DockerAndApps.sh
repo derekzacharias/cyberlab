@@ -64,5 +64,5 @@ echo "Docker configuration for WonderCMS created."
 
 echo "WonderCMS application started."
 
-# completion message
+# Completion message
 echo "Installation complete. All services are up and running."
