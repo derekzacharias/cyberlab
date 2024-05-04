@@ -1,0 +1,79 @@
+site_name: Cyber Lab
+site_description: A comprehensive resource for learning about cyber security across various domains.
+site_author: Cyber Lab Team
+site_url: http://localhost:8000
+
+theme:
+  name: material
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.ico
+  features:
+    - instant
+    - navigation.instant
+    - navigation.top
+    - navigation.sections
+    - search.highlight
+    - search.share
+
+nav:
+  - Home: 'index.md'
+  - Cyber Security Fundamentals:
+    - Introduction to Cyber Security: 'cyber-security-fundamentals/introduction.md'
+    - Understanding Cyber Threats: 'cyber-security-fundamentals/threats-vulnerabilities.md'
+    - Principles of Information Security: 'cyber-security-fundamentals/principles.md'
+    - Basic Cryptography: 'cyber-security-fundamentals/cryptography.md'
+  - Network Security:
+    - Network Fundamentals: 'network-security/network-fundamentals.md'
+    - Securing Network Infrastructure: 'network-security/securing-infra.md'
+    - IDS/IPS: 'network-security/ids-ips.md'
+    - Firewall Configuration: 'network-security/firewalls.md'
+    - VPNs and Secure Protocols: 'network-security/vpns.md'
+  - Ethical Hacking and Pen Testing:
+    - Introduction to Ethical Hacking: 'ethical-hacking/introduction.md'
+    - Reconnaissance Techniques: 'ethical-hacking/reconnaissance.md'
+    - Scanning and Enumeration: 'ethical-hacking/scanning.md'
+    - Vulnerability Assessment: 'ethical-hacking/vulnerability-assessment.md'
+    - Exploitation Techniques: 'ethical-hacking/exploitation.md'
+    - Maintaining Access: 'ethical-hacking/maintaining-access.md'
+    - Penetration Testing Reports: 'ethical-hacking/pen-testing-reports.md'
+  - Web and Application Security:
+    - Web App Architecture: 'web-app-security/architecture.md'
+    - Common Vulnerabilities: 'web-app-security/common-vuln.md'
+    - Secure Coding Practices: 'web-app-security/secure-coding.md'
+    - Security Testing Tools: 'web-app-security/testing-tools.md'
+    - Defensive Programming: 'web-app-security/defensive-programming.md'
+  - Incident Response and Forensics:
+    - Preparing for Incidents: 'incident-response/preparation.md'
+    - Forensic Tools: 'incident-response/forensic-tools.md'
+    - Evidence Collection: 'incident-response/evidence-collection.md'
+    - Legal Considerations: 'incident-response/legal.md'
+  - Operating System and Software Security:
+    - OS Security Features: 'os-security/os-features.md'
+    - Patch Management: 'os-security/patch-management.md'
+    - Malware Analysis: 'os-security/malware-analysis.md'
+    - Software Reverse Engineering: 'os-security/reverse-engineering.md'
+  - Cloud Security:
+    - Cloud Computing Overview: 'cloud-security/overview.md'
+    - Security Challenges: 'cloud-security/challenges.md'
+    - Best Practices: 'cloud-security/best-practices.md'
+    - Cloud Service Models: 'cloud-security/service-models.md'
+  - Cyber Law and Ethics:
+    - Cyber Law: 'cyber-law/overview.md'
+    - Ethical Considerations: 'cyber-law/ethics.md'
+    - Compliance Frameworks: 'cyber-law/compliance.md'
+  - Emerging Technologies:
+    - AI in Cyber Security: 'emerging-tech/ai.md'
+    - Blockchain Security: 'emerging-tech/blockchain.md'
+    - Quantum Cryptography: 'emerging-tech/quantum.md'
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
