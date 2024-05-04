@@ -65,7 +65,7 @@ cd my-mkdocs-project
 docker run --rm -v ${PWD}:/docs squidfunk/mkdocs-material new .
 
 # Starting mkdocs container
-docker run -it --rm -p 8080:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+docker run -d -it --rm -p 8080:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 
 echo "Docker configuration for mkdocs created."
 
