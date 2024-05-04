@@ -46,16 +46,16 @@ echo "Portainer installation complete."
 echo "To access Portainer web console go to the following location:" 
 echo "https://$(hostname -I | awk '{print $1}'):9443"
 
-# Optional applications (example using Juice-shop and Typemill)
+# Optional applications (example using Juice-shop and PicoCMS)
 echo "Setting up additional applications..."
 docker pull bkimminich/juice-shop
 docker run -d -p 3000:3000 --restart always bkimminich/juice-shop
 
 echo "Installing picoCMS"
 
-git clone https://github.com/guillaumeprevost/docker-picocms.git
+sudo git clone https://github.com/guillaumeprevost/docker-picocms.git
 cd docker-picocms
-docker-compose build
+sudo docker-compose build
 
 echo "Docker-compose configuration for PicoCMS created."
 
