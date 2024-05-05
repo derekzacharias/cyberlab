@@ -60,6 +60,65 @@ docker pull squidfunk/mkdocs-material
 #Creating persistence
 mkdir my-mkdocs-project
 cd my-mkdocs-project
+cd docs
+mkdir cyber-security-fundamentals
+touch docs/cyber-security-fundamentals/introduction.md
+touch docs/cyber-security-fundamentals/threats-vulnerabilities.md
+touch docs/cyber-security-fundamentals/principles.md
+touch docs/cyber-security-fundamentals/cryptography.md
+
+mkdir -p docs/network-security
+touch docs/network-security/network-fundamentals.md
+touch docs/network-security/securing-infra.md
+touch docs/network-security/ids-ips.md
+touch docs/network-security/firewalls.md
+touch docs/network-security/vpns.md
+
+mkdir -p docs/ethical-hacking
+touch docs/ethical-hacking/introduction.md
+touch docs/ethical-hacking/reconnaissance.md
+touch docs/ethical-hacking/scanning.md
+touch docs/ethical-hacking/vulnerability-assessment.md
+touch docs/ethical-hacking/exploitation.md
+touch docs/ethical-hacking/maintaining-access.md
+touch docs/ethical-hacking/pen-testing-reports.md
+
+mkdir -p docs/web-app-security
+touch docs/web-app-security/architecture.md
+touch docs/web-app-security/common-vuln.md
+touch docs/web-app-security/secure-coding.md
+touch docs/web-app-security/testing-tools.md
+touch docs/web-app-security/defensive-programming.md
+
+mkdir -p docs/incident-response
+touch docs/incident-response/preparation.md
+touch docs/incident-response/forensic-tools.md
+touch docs/incident-response/evidence-collection.md
+touch docs/incident-response/legal.md
+
+mkdir -p docs/os-security
+touch docs/os-security/os-features.md
+touch docs/os-security/patch-management.md
+touch docs/os-security/malware-analysis.md
+touch docs/os-security/reverse-engineering.md
+
+mkdir -p docs/cloud-security
+touch docs/cloud-security/overview.md
+touch docs/cloud-security/challenges.md
+touch docs/cloud-security/best-practices.md
+touch docs/cloud-security/service-models.md
+
+mkdir -p docs/cyber-law
+touch docs/cyber-law/overview.md
+touch docs/cyber-law/ethics.md
+touch docs/cyber-law/compliance.md
+
+mkdir -p docs/emerging-tech
+touch docs/emerging-tech/ai.md
+touch docs/emerging-tech/blockchain.md
+touch docs/emerging-tech/quantum.md
+
+
 
 # Initialize a new project
 docker run --rm -v ${PWD}:/docs squidfunk/mkdocs-material new .
