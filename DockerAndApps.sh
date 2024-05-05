@@ -58,15 +58,15 @@ echo "Installing mkdocs"
 docker pull squidfunk/mkdocs-material
 
 #Creating persistence
-mkdir -p my-mkdocs-project/docs/cyber-security-fundamentals
-cd my-mkdocs-project/docs/cyber-security-fundamentals
+sudo mkdir -p mkdocs/docs/cyber-security-fundamentals
+cd my-mkdocs-project
 
 touch docs/cyber-security-fundamentals/introduction.md
 touch docs/cyber-security-fundamentals/threats-vulnerabilities.md
 touch docs/cyber-security-fundamentals/principles.md
 touch docs/cyber-security-fundamentals/cryptography.md
 
-mkdir -p docs/network-security
+sudo mkdir -p docs/network-security
 touch docs/network-security/network-fundamentals.md
 touch docs/network-security/securing-infra.md
 touch docs/network-security/ids-ips.md
