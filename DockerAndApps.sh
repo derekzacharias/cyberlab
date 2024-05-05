@@ -60,7 +60,8 @@ docker pull squidfunk/mkdocs-material
 #Creating persistence
 sudo mkdir mkdocs
 cd mkdocs
-
+mkdir docs
+mkdir -p docs/cyber-security-fundamentals
 touch docs/cyber-security-fundamentals/introduction.md
 touch docs/cyber-security-fundamentals/threats-vulnerabilities.md
 touch docs/cyber-security-fundamentals/principles.md
