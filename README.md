@@ -11,7 +11,7 @@ To get started the first thing that you want to do is install esxi on your serve
 Don't worry about all the networking We'll get to that in a bit
 
 ### Configuring your switches
-The next thing that you're going to need to do is configure your switch. This is not a difficult process. Use the following configuration for each link from the switch to the ESXI hosts.
+The next thing that youneed to do is configure your switch. Use the following configuration for each link from the switch to the ESXI hosts.
 
 ```
 interface GigabitEthernet0/xx
@@ -20,6 +20,21 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport nonegotiate
 spanning-tree portfast trunk
+```
+### Next configure the vlans 
+```
+configure terminal
+vlan 10
+ name Clients
+!
+vlan 15
+ name Management
+!
+vlan 20
+ name Servers
+!
+end
+copy run start
 ```
 
 ```
