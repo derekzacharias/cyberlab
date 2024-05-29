@@ -80,7 +80,7 @@ Use the ESXi web interface to configure, manage, and monitor the host.
 
 
 ### Configuring your switches
-The next thing that youneed to do is configure your switch. Use the following configuration for each link from the switch to the ESXI hosts.
+The next thing that you need to do is configure the switch. Use the following configuration for each link from the switch to the ESXI hosts if your using a Cisco switch. If you're not using Cisco switches, then figure out how to create trunk ports to your ESXi hosts.
 
 ```
 interface GigabitEthernet0/xx
@@ -105,7 +105,7 @@ vlan 20
 end
 copy run start
 ```
-
+### Configure PFsense firewall
 ```
 The DockerAndApps.sh script will install docker, docker-compose, Portainer, juice-shop.```
 
