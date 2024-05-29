@@ -13,12 +13,14 @@ Don't worry about all the networking We'll get to that in a bit
 ### Configuring your switches
 The next thing that you're going to need to do is configure your switch. This is not a difficult process. Use the following configuration for each link from the switch to the ESXI hosts.
 
-```interface GigabitEthernet0/xx
- description Link from switch to ESXi01 
- switchport trunk encapsulation dot1q
- switchport mode trunk
- switchport nonegotiate
- spanning-tree portfast trunk```
+```
+interface GigabitEthernet0/xx
+description Link from switch to ESXi01 
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport nonegotiate
+spanning-tree portfast trunk
+```
 
 ```
 The DockerAndApps.sh script will install docker, docker-compose, Portainer, juice-shop.```
