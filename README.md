@@ -1,10 +1,10 @@
-# The cyber lab. Learn information technology and cyber security.
+## The cyber lab. Learn information technology and cyber security.
 
 ### Please see the following network diagram to get started. 
 `Cyber Lab Physical Diagram.drawio`
 
 I have made every attempt to cut costs and use free open-source software where I could.
-I recommend using HP Z600 or the HP Z800 series workstations as they are very quite and they are cheap. However, they do consume a fair amount of electricity compared to modern chipsets, 160W but can be configured with large amounts of RAM and have multiple processors. 
+I recommend using HP Z600 or the HP Z800 series workstations as they are very quiet and they are cheap. However, they do consume a fair amount of electricity compared to modern chipsets, 160W at max capacity but they can be configured with large amounts of RAM and have multiple processors which is what we need with out the heat and the noise for a home lab. 
 
 ### Installing ESXi
 To get started the first thing that you want to do is install esxi on your servers this will give you the ability to host virtual machines and after installing Docker the ability to host containers.
