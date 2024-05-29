@@ -9,84 +9,79 @@ I recommend using HP Z600 or the HP Z800 series workstations as they are very qu
 ### Installing ESXi
 To get started the first thing that you want to do is install esxi on your servers this will give you the ability to host virtual machines.
 Don't worry about all the networking We'll get to that in a bit.
-Steps:
+
+Installing VMware ESXi 6.7
+Prerequisites
+Hardware Requirements:
+
+Compatible server with at least 4 GB RAM.
+x64 processor with Intel VT-x or AMD-V support.
+Storage space for ESXi installation.
+Software Requirements:
+
+Download the ESXi 6.7 ISO from the VMware website.
+Steps
 1. Prepare Installation Media
-Using a USB Flash Drive:
+USB Flash Drive:
 
-Download the ESXi 6.7 ISO image from the VMware website.
-Use a tool like Rufus to create a bootable USB drive:
-Open Rufus.
-Select your USB drive.
-Select the ESXi 6.7 ISO image.
-Click Start to create the bootable USB drive.
-Using a CD/DVD:
+Download the ESXi 6.7 ISO.
+Use Rufus to create a bootable USB drive.
+CD/DVD:
 
-Download the ESXi 6.7 ISO image from the VMware website.
-Burn the ISO image to a CD/DVD using a tool like ImgBurn or any other ISO burning software.
+Download the ESXi 6.7 ISO.
+Burn the ISO to a CD/DVD using software like ImgBurn.
 2. Boot from Installation Media
-Insert the bootable USB drive or CD/DVD into the server.
-Power on the server and enter the BIOS/UEFI settings (usually by pressing a key like F2, F10, F12, ESC, or DEL during the boot process).
-Configure the server to boot from the USB drive or CD/DVD.
-Save the changes and exit the BIOS/UEFI settings. The server should now boot from the installation media.
+Insert the bootable USB drive or CD/DVD.
+Enter BIOS/UEFI settings and set the server to boot from the installation media.
+Save changes and reboot.
 3. Install ESXi 6.7
 Boot Screen:
 
-When the server boots from the installation media, you will see the ESXi 6.7 boot screen. Press Enter to start the installation.
-Loading ESXi Installer:
+Press Enter to start the installation.
+Loading Installer:
 
-The installer will load necessary files. This might take a few minutes.
+Wait for the installer to load.
 Welcome Screen:
 
-On the Welcome to the VMware ESXi 6.7 Installation screen, press Enter to continue.
-End User License Agreement (EULA):
+Press Enter.
+EULA:
 
-Read the EULA and press F11 to accept and continue.
+Press F11 to accept.
 Select Storage Device:
 
-The installer will display a list of available storage devices. Select the storage device where you want to install ESXi 6.7 and press Enter.
-Select Keyboard Layout:
+Choose the storage device for installation and press Enter.
+Keyboard Layout:
 
-Choose your keyboard layout and press Enter.
+Select your keyboard layout and press Enter.
 Set Root Password:
 
-Enter a strong root password, confirm it, and press Enter.
+Enter and confirm a strong root password.
 Confirm Installation:
 
-The installer will warn you that the selected disk will be repartitioned. Press F11 to confirm and start the installation.
-Installation Progress:
+Press F11 to start the installation.
+Complete Installation:
 
-The installer will copy files and install ESXi 6.7. This might take a few minutes.
-Installation Complete:
-
-Once the installation is complete, you will be prompted to remove the installation media and press Enter to reboot the server.
+Remove installation media and press Enter to reboot.
 4. Post-Installation Configuration
 Boot into ESXi:
 
-After rebooting, the server will boot into the ESXi 6.7 hypervisor.
+Server boots into the ESXi 6.7 hypervisor.
 Initial Configuration:
 
-You will see the Direct Console User Interface (DCUI). Press F2 to customize the system.
-Log in using the root username and the password you set during the installation.
+Press F2 and log in with root credentials.
 Network Configuration:
 
-Configure the network settings:
-Select Configure Management Network.
-Set the network adapter, VLAN (if needed), IP configuration (static IP is recommended), DNS configuration, and hostname.
-Apply Changes:
-
-Press Esc to exit the network configuration menu. You will be prompted to restart the management network to apply the changes. Confirm the restart.
+Select Configure Management Network:
+Set network adapter, VLAN (if needed), IP configuration, DNS, and hostname.
+Press Esc and confirm to restart the management network.
 5. Access the ESXi Host
 Web Interface:
 
-From a web browser, access the ESXi host by navigating to https://[ESXi-host-IP].
-Log in with the root credentials.
+Open a browser and navigate to https://[ESXi-host-IP].
+Log in with root credentials.
 Configuration and Management:
 
-From the ESXi web interface, you can configure, manage, and monitor your ESXi host.
-Additional Resources:
-VMware Documentation:
-Refer to the official VMware documentation for more detailed instructions and best practices: VMware ESXi 6.7 Documentation.
-Following these steps will help you successfully install VMware ESXi 6.7 on your server.
+Use the ESXi web interface to configure, manage, and monitor the host.
 
 
 ### Configuring your switches
