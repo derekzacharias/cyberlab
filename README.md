@@ -10,31 +10,26 @@ I recommend using HP Z600 or the HP Z800 series workstations as they are very qu
 To get started the first thing that you want to do is install esxi on your servers this will give you the ability to host virtual machines.
 Don't worry about all the networking We'll get to that in a bit.
 
-Installing VMware ESXi 6.7
-Prerequisites
-Hardware Requirements:
-
+### Prerequisites
+Hardware Requirements
 Compatible server with at least 4 GB RAM.
 x64 processor with Intel VT-x or AMD-V support.
 Storage space for ESXi installation.
-Software Requirements:
-
+Software Requirements
 Download the ESXi 6.7 ISO from the VMware website.
 Steps
-1. Prepare Installation Media
-USB Flash Drive:
-
+### 1. Prepare Installation Media
+Using a USB Flash Drive
 Download the ESXi 6.7 ISO.
 Use Rufus to create a bootable USB drive.
-CD/DVD:
-
+Using a CD/DVD
 Download the ESXi 6.7 ISO.
 Burn the ISO to a CD/DVD using software like ImgBurn.
-2. Boot from Installation Media
+### 2. Boot from Installation Media
 Insert the bootable USB drive or CD/DVD.
 Enter BIOS/UEFI settings and set the server to boot from the installation media.
 Save changes and reboot.
-3. Install ESXi 6.7
+### 3. Install ESXi 6.7
 Boot Screen:
 
 Press Enter to start the installation.
@@ -65,7 +60,7 @@ Remove installation media and press Enter to reboot.
 4. Post-Installation Configuration
 Boot into ESXi:
 
-Server boots into the ESXi 6.7 hypervisor.
+The server boots into the ESXi 6.7 hypervisor.
 Initial Configuration:
 
 Press F2 and log in with root credentials.
