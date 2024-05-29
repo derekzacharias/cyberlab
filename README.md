@@ -1,4 +1,4 @@
-# The cyber lab, learn about information technology and cyber security.
+# The cyber lab. Learn information technology and cyber security.
 
 ### Please see the following network diagram to get started. 
 
