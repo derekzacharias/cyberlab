@@ -4,10 +4,10 @@
 `Cyber Lab Physical Diagram.drawio`
 
 I have made every attempt to cut costs and use free open-source software where I could.
-I recommend using HP Z600 or the HP Z800 series workstations as they are very quiet and they are cheap. However, they do consume a fair amount of electricity compared to modern chipsets, 160W at max capacity but they can be configured with large amounts of RAM and have multiple processors which is what we need with out the heat and the noise for a home lab. 
+I recommend using HP Z600 or the HP Z800 series workstations as they are very quiet and they are cheap. However, they do consume a fair amount of electricity compared to modern chipsets, 160W at max capacity but they can be configured with large amounts of RAM and have multiple processors which is what we need without the heat and the noise for a home lab. 
 
 ### Installing ESXi
-To get started the first thing that you want to do is install esxi on your servers this will give you the ability to host virtual machines.
+To get started the first thing that you want to do is install ESXi on your servers this will give you the ability to host virtual machines.
 Don't worry about all the networking We'll get to that in a bit.
 
 ### Prerequisites
@@ -18,6 +18,7 @@ Storage space for ESXi installation.
 Software Requirements
 Download the ESXi 6.7 ISO from the VMware website.
 Steps
+
 ### 1. Prepare Installation Media
 Using a USB Flash Drive
 Download the ESXi 6.7 ISO.
@@ -25,10 +26,12 @@ Use Rufus to create a bootable USB drive.
 Using a CD/DVD
 Download the ESXi 6.7 ISO.
 Burn the ISO to a CD/DVD using software like ImgBurn.
+
 ### 2. Boot from Installation Media
 Insert the bootable USB drive or CD/DVD.
 Enter BIOS/UEFI settings and set the server to boot from the installation media.
 Save changes and reboot.
+
 ### 3. Install ESXi 6.7
 Boot Screen:
 
@@ -80,16 +83,17 @@ Use the ESXi web interface to configure, manage, and monitor the host.
 
 
 ### Configuring your switches
-The next thing that you need to do is configure the switch. Use the following configuration for each link from the switch to the ESXI hosts if your using a Cisco switch. If you're not using Cisco switches, then figure out how to create trunk ports to your ESXi hosts.
+The next thing that you need to do is configure the switch. If you're using a Cisco switch. Use the following configuration for each link from the switch to the ESXi host.  If you're not using Cisco switches, you will need to figure out how to create trunk ports for your ESXi hosts. Trunk ports carry all VLAN-tagged traffic and ESXi will manage the VLANs after we configure them.
 
 ```
-interface GigabitEthernet0/xx
+interface GigabitEthernet0/4
 description Link from switch to ESXi01 
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport nonegotiate
 spanning-tree portfast trunk
 ```
+
 ### Next configure the vlans 
 ```
 configure terminal
@@ -105,7 +109,10 @@ vlan 20
 end
 copy run start
 ```
+
 ### Configure PFsense firewall
+
+
 ```
 The DockerAndApps.sh script will install docker, docker-compose, Portainer, juice-shop.```
 
