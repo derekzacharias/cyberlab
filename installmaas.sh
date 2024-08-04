@@ -1,13 +1,24 @@
+
 #!/bin/bash
 
 # Script to install Ubuntu MAAS (Metal as a Service)
 # Ensure you run this script as root or with sudo privileges.
 
-echo "Starting the installation of Ubuntu MAAS..."
-
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
 sudo apt update && sudo apt upgrade -y
+
+# Enable the Universe repository
+echo "Enabling the Universe repository..."
+sudo add-apt-repository universe
+
+# Add the MAAS Stable PPA
+echo "Adding the MAAS Stable PPA..."
+sudo add-apt-repository -y ppa:maas/3.3
+
+# Update the package list again
+echo "Updating the package list after adding PPA..."
+sudo apt update
 
 # Install MAAS
 echo "Installing MAAS..."
@@ -40,7 +51,7 @@ echo "MAAS installation completed."
 echo "Access the MAAS web interface at: $MAAS_URL"
 echo "Use the admin credentials to log in."
 
-# Optionally restart MAAS services
+# Restart MAAS services
 echo "Restarting MAAS services..."
 sudo systemctl restart maas-regiond
 sudo systemctl restart maas-rackd
