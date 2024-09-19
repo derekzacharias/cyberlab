@@ -9,7 +9,6 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 # Install the xfce desktop
 sudo apt-get install kali-desktop-xfce -y
 
-
 # Install xrdp
 echo "Installing xrdp..."
 sudo apt-get install xrdp -y
