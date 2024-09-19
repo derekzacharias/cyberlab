@@ -25,6 +25,8 @@ sudo cp ~/.xsession /etc/skel
 sudo sed -i 's/allowed_users=console/allowed_users=anybody/' /etc/X11/Xwrapper.config
 
 # Restart xrdp service to apply changes
+echo "Enabling this service..."
+sudo systemctl enable xrdp
 echo "Restarting xrdp service..."
 sudo systemctl restart xrdp
 
