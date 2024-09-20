@@ -33,7 +33,9 @@ sudo systemctl enable xrdp
 echo "Restarting xrdp service..."
 sudo systemctl restart xrdp
 
+echo "xrdp installation and configuration completed. You can now try logging in using RDP."
+
+wait 10
+
 # Force Log off of user session
 xfce4-session-logout --logout --fast
-
-echo "xrdp installation and configuration completed. You can now try logging in using RDP."
